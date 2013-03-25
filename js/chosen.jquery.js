@@ -702,7 +702,8 @@ Copyright (c) 2011 by Harvest
       }
     };
 
-    Chosen.prototype.choice_build = function(item) {
+    Chosen.prototype.choice_build = function (item) {
+      this.new_term_to_be_added = null;
       var choice_id, html, link,
         _this = this;
       if (this.is_multiple && this.max_selected_options <= this.choices) {
@@ -936,6 +937,7 @@ Copyright (c) 2011 by Harvest
       var no_results_html;
       no_results_html = $('<li class="no-results">' + this.results_none_found + ' "<span></span>"</li>');
       no_results_html.find("span").first().html(terms);
+      this.new_term_to_be_added = terms;
       return this.search_results.append(no_results_html);
     };
 
@@ -1021,8 +1023,21 @@ Copyright (c) 2011 by Harvest
           this.mouse_on_container = false;
           break;
         case 13:
-          evt.preventDefault();
-          break;
+            if (this.new_term_to_be_added != null && this.options.addNewElementCallback != null) {
+                var newElement = this.options.addNewElementCallback(this.new_term_to_be_added, this.options.addNewElementCallbackSelector);
+
+                if (newElement != null && newElement.length == 1) {
+                    // KEY TO SOLVING THIS PROBLEM
+                    this.result_highlight = newElement;
+                    // This will automatically trigger the change/select events also. 
+                    // Nothing more required.
+                    this.result_select(evt);
+                }
+                this.new_term_to_be_added = null;
+            }
+            
+            evt.preventDefault();
+            break;
         case 38:
           evt.preventDefault();
           this.keyup_arrow();

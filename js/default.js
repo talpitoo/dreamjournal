@@ -82,8 +82,13 @@ $(function () {
     //add dream
     $('.empty').hide();
     $('.action-add').on('click', function () {
-        $('.empty').clone(true).insertAfter('.dream:last').removeClass('empty').fadeIn();
-        $(".autocomplete").chosen();
+        $('.empty').clone(true).insertAfter('.dream:last').removeClass('empty').fadeIn(function () {
+            //$("#autocompleteRelatedDreams").chosen();
+            $(".autocomplete").chosen();
+            //$("#autocompleteRelatedDreams2").chosen();
+            //$("#autocompleteSymbols").chosen({ addNewElementCallback: addTagCallback, addNewElementCallbackSelector: '#autocompleteSymbols', no_results_text: "Create new symbol" });
+            //$("#autocompleteSymbols2").chosen({ addNewElementCallback: addTagCallback, addNewElementCallbackSelector: '#autocompleteSymbols2', no_results_text: "Create new symbol" });
+        });
     });
 
     //delete dream
@@ -139,14 +144,50 @@ $(function () {
         $('.sleeping-periods').prepend("<li><a href='javascript:'>" + sleepingPeriods[0] + "</a></li>");
         $('.dropdown-toggle.action-sleep').html(sleepingPeriods[0]);
     });
-    
+
+    //autocomplete
+    var addTagCallback = function(tagText, selector) {
+        var newElement = null;
+
+        /* server check version
+        $.ajax({
+            url: that.actionUrl,
+            async: false,
+            dataType: "json",
+            data: { // ....},
+                success: function (response) {
+                    if (response) {
+                        $('#tagSelection').append(
+                            $('<option></option>')
+                                  .val(data.Item.Id)
+                                  .html(data.Item.Value)
+                                  .attr("selected", "selected"));
+                        $("#tagSelection").trigger("liszt:updated");
+                        // Get the element - will necessarily be the last element - so the following selector will work
+                        newElement = $("#tagSelection_chzn li#tagSelection_chzn_o_" + ($("#tagSelection option").length - 1));
+                    } else {
+                        // Handle Error
+                    }
+                }
+            }
+        });
+        */
+
+        /* direct select version */
+        $(selector).append($('<option></option>').val(tagText).html(tagText).attr("selected", "selected"));
+        $(selector).trigger("liszt:updated");
+        //newElement = $(selector + "_chzn li" + selector + "_chzn_o_" + ($(selector + " option").length - 1));
+        //return newElement;
+    };
+    //$("#autocompleteRelatedDreams").chosen();
+    //$("#autocompleteRelatedDreams2").chosen();
+    //$("#autocompleteSymbols").chosen({ addNewElementCallback: addTagCallback, addNewElementCallbackSelector: '#autocompleteSymbols', no_results_text: "Create new symbol" });
+    //$("#autocompleteSymbols2").chosen({ addNewElementCallback: addTagCallback, addNewElementCallbackSelector: '#autocompleteSymbols2', no_results_text: "Create new symbol" });
+    $(".autocomplete").chosen();
 
     //timepickers
     $('.dropdown-menu .custom').click(function (e) {
         e.stopPropagation();
     });
-
-    //autocomplete
-    $(".autocomplete").chosen();
 
 });
