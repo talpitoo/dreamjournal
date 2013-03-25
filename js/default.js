@@ -144,37 +144,9 @@ $(function () {
 
     //autocomplete
     var addTagCallback = function(tagText, selector) {
-        var newElement = null;
-
-        /* server check version
-        $.ajax({
-            url: that.actionUrl,
-            async: false,
-            dataType: "json",
-            data: { // ....},
-                success: function (response) {
-                    if (response) {
-                        $('#tagSelection').append(
-                            $('<option></option>')
-                                  .val(data.Item.Id)
-                                  .html(data.Item.Value)
-                                  .attr("selected", "selected"));
-                        $("#tagSelection").trigger("liszt:updated");
-                        // Get the element - will necessarily be the last element - so the following selector will work
-                        newElement = $("#tagSelection_chzn li#tagSelection_chzn_o_" + ($("#tagSelection option").length - 1));
-                    } else {
-                        // Handle Error
-                    }
-                }
-            }
-        });
-        */
-
-        /* direct select version */
-        $(selector.form_field).append($('<option></option>').val(tagText).html(tagText).attr("selected", "selected"));
-        $(selector.form_field).trigger("liszt:updated");
-        //newElement = $(selector + "_chzn li" + selector + "_chzn_o_" + ($(selector + " option").length - 1));
-        //return newElement;
+        $('.autocomplete-symbols').append($('<option></option>').val(tagText).html(tagText));
+        $("option:last", selector.form_field).attr('selected', 'selected');
+        $('.autocomplete-symbols').trigger("liszt:updated");
     };
     $(".dream:last .autocomplete-dreams").chosen();
     $(".dream:last .autocomplete-symbols").chosen({ addNewElementCallback: addTagCallback, no_results_text: "Create new symbol" });

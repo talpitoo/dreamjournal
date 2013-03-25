@@ -1025,18 +1025,9 @@ Copyright (c) 2011 by Harvest
           break;
         case 13:
             if (this.new_term_to_be_added != null && this.options.addNewElementCallback != null) {
-                var newElement = this.options.addNewElementCallback(this.new_term_to_be_added, this);
-
-                if (newElement != null && newElement.length == 1) {
-                    // KEY TO SOLVING THIS PROBLEM
-                    this.result_highlight = newElement;
-                    // This will automatically trigger the change/select events also. 
-                    // Nothing more required.
-                    this.result_select(evt);
-                }
+                this.options.addNewElementCallback(this.new_term_to_be_added, this);
                 this.new_term_to_be_added = null;
             }
-            
             evt.preventDefault();
             break;
         case 38:
