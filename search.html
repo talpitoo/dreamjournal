@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Advanced search | dreamlog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/datepicker.css" rel="stylesheet">
+    <link href="css/chosen.css" rel="stylesheet" />
+    <link href="css/default.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="span4 offset2">
+                <img src="img/sleeping-sheep.png" />
+            </div>
+            <div class="span4">
+                <h2 class="typewriter"><a href="index.html">&gt;<span class="caption">dreamlog</span><span class="cursor">_</span></a></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span8 offset2">
+                <h1>Advanced search</h1>
+
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="keywords">Keywords</label>
+                        <div class="controls">
+                            <input type="text" id="keywords">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Symbols</label>
+                        <div class="controls">
+                            <select multiple="" style="width: 250px;" data-placeholder="Choose..." class="autocomplete">
+                                <option value="United States">United States</option>
+                                <option value="Afghanistan">Afghanistan</option>
+                                <option value="Albania">Albania</option>
+                                <option value="Algeria">Algeria</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group date">
+                        <label class="control-label">Date between</label>
+                        <div class="controls">
+                            <span class="pull-left span4">
+                                <span class="input-group">
+                                    <input type="text">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i> </span>&nbsp;and&nbsp;
+                                </span>
+                            </span>
+                            <span class="pull-left span3">
+                                <span class="input-group">
+                                    <input type="text">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i> </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Time between</label>
+                        <div class="controls">
+                            <select class="span2" data-unit="hour" data-min="0" data-max="23" data-step="1">
+                                <option value="0" selected="">00</option>
+                                <option value="1">01</option>
+                                <option value="2">02</option>
+                                <option value="3">03</option>
+                                <option value="4">04</option>
+                                <option value="5">05</option>
+                                <option value="6">06</option>
+                                <option value="7">07</option>
+                                <option value="8">08</option>
+                                <option value="9">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                            </select>
+                            and 
+                            <select class="span2" data-unit="hour" data-min="0" data-max="23" data-step="1">
+                                <option value="0" selected="">00</option>
+                                <option value="1">01</option>
+                                <option value="2">02</option>
+                                <option value="3">03</option>
+                                <option value="4">04</option>
+                                <option value="5">05</option>
+                                <option value="6">06</option>
+                                <option value="7">07</option>
+                                <option value="8">08</option>
+                                <option value="9">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Mood</label>
+                        <div class="controls">
+                            <div class="btn-group" data-toggle="buttons-checkbox">
+                                <button type="button" class="btn">=)</button>
+                                <button type="button" class="btn">:)</button>
+                                <button type="button" class="btn">:|</button>
+                                <button type="button" class="btn">:(</button>
+                                <button type="button" class="btn">:0</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Recall</label>
+                        <div class="controls">
+                            <div class="btn-group" data-toggle="buttons-checkbox">
+                                <button type="button" class="btn">blurry</button>
+                                <button type="button" class="btn">n/a</button>
+                                <button type="button" class="btn">clear</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Type</label>
+                        <div class="controls">
+                            <div class="btn-group" data-toggle="buttons-checkbox">
+                                <button type="button" class="btn">regular</button>
+                                <button type="button" class="btn">lucid</button>
+                                <button type="button" class="btn">OBE</button>
+                                <button type="button" class="btn">precognition</button>
+                                <button type="button" class="btn">false awakening</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Lucidity</label>
+                        <div class="controls">
+                            <div class="btn-group" data-toggle="buttons-checkbox">
+                                <button type="button" class="btn">low</button>
+                                <button type="button" class="btn">medium</button>
+                                <button type="button" class="btn">high</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="checkbox">
+                                <input type="checkbox">
+                                starred
+                            </label>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn btn-primary btn-large"><i class="glyphicon glyphicon-search"></i>  Search</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /container -->
+    <img src="img/clouds.png" />
+
+    <div class="menu">
+        <img src="img/loader.gif" class="loader" />
+        <div class="btn-group">
+            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="glyphicon glyphicon-user"></i> Tamás<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#"><i class="glyphicon glyphicon-wrench"></i> Settings</a></li>
+                <li><a href="login.html"><i class="glyphicon glyphicon-off"></i> Sign out</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="span4 offset2">
+                    <div class="well">
+                        <h3>Search</h3>
+                        <div class="input-append">
+                            <input class="span8" type="text">
+                            <a href="search.html" class="btn"><i class="glyphicon glyphicon-search"></i> </a>
+                        </div>
+                        <a href="search.html">Advanced search...</a>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="well">
+                        <h3>Average sleep</h3>
+                        <p><i class="glyphicon glyphicon-time"></i> 6.5 hours</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4 offset2">
+                    <div class="top-symbols well clearfix">
+                        <a class="btn btn-mini btn-link pull-right" href="#"><i class="glyphicon glyphicon-pencil"></i> Symbol editor</a>
+                        <h3>Top symbols</h3>
+                        <ol>
+                            <li><span class="label">levitation</span> (17)</li>
+                            <li><span class="label">symbol #2</span> (11)</li>
+                            <li><span class="label">flying</span> (7)</li>
+                            <li><span class="label">cycling</span> (2)</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="well">
+                        <h3>Dream recall</h3>
+                        <img src="https://chart.googleapis.com/chart?chs=300x80&cht=lc&chd=t:40,60,60,45,47,75,70,72" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/chosen.jquery.min.js"></script>
+    <script src="js/default.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>dreamlog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/datepicker.css" rel="stylesheet">
+    <link href="css/chosen.css" rel="stylesheet" />
+    <link href="css/default.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="span4 offset2">
+                <img src="img/sleeping-sheep.png" />
+            </div>
+            <div class="span4">
+                <h2 class="typewriter">&gt;<span class="caption">dreamlog</span><span class="cursor">_</span></h2>
+                <input type="text" id="alternate" class="hidden" />
+                <div class="datepicker"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span8 offset2">
+                <h1>Friday, November 16, 2012</h1>
+                <p contenteditable="true" class="daily"></p>
+
+                <div class="well dream empty">
+                    <div class="btn-group pull-right">
+                        <a href="#confirmation" role="button" data-toggle="modal" class="btn btn-mini btn-link action-delete"><i class="glyphicon glyphicon-trash"></i> </a>
+                    </div>
+                    <h2 contenteditable="true" class="title"></h2>
+                    <p contenteditable="true" class="description"></p>
+                    <p contenteditable="true" class="notes muted"></p>
+
+                    <div class="btn-toolbar">
+
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle action-sleep">sleep<span class="caret"></span></a>
+                            <ul class="dropdown-menu sleeping-periods">
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="form-horizontal custom sleep">
+                                        <span class="help-block">...or add new (e.g. afternoon nap):</span>
+
+                                        <div class="control-group">
+                                            <label class="control-label">bed time</label>
+                                            <div class="controls">
+                                                <select class="" data-unit="hour" data-min="0" data-max="23" data-step="1">
+                                                    <option value="00" selected="">00</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                </select>
+                                                <select class="pull-right" data-unit="minute" data-min="0" data-max="55" data-step="5">
+                                                    <option value="00" selected="">00</option>
+                                                    <option value="05">05</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="20">20</option>
+                                                    <option value="25">25</option>
+                                                    <option value="30">30</option>
+                                                    <option value="35">35</option>
+                                                    <option value="40">40</option>
+                                                    <option value="45">45</option>
+                                                    <option value="50">50</option>
+                                                    <option value="55">55</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label">wake time</label>
+                                            <div class="controls">
+                                                <select class="" data-unit="hour" data-min="0" data-max="23" data-step="1">
+                                                    <option value="00" selected="">00</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                </select>
+                                                <select class="pull-right" data-unit="minute" data-min="0" data-max="55" data-step="5">
+                                                    <option value="00" selected="">00</option>
+                                                    <option value="05">05</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="20">20</option>
+                                                    <option value="25">25</option>
+                                                    <option value="30">30</option>
+                                                    <option value="35">35</option>
+                                                    <option value="40">40</option>
+                                                    <option value="45">45</option>
+                                                    <option value="50">50</option>
+                                                    <option value="55">55</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-block action-done">Done</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group switch">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle mood">mood<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:">=)</a></li>
+                                <li><a href="javascript:">:)</a></li>
+                                <li><a href="javascript:">:|</a></li>
+                                <li><a href="javascript:">:(</a></li>
+                                <li><a href="javascript:">:0</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group switch">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">recall<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:">blurry</a></li>
+                                <li><a href="javascript:">n/a</a></li>
+                                <li><a href="javascript:">clear</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group switch">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">type<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:">regular</a></li>
+                                <li><a href="javascript:">lucid</a></li>
+                                <li><a href="javascript:">OBE</a></li>
+                                <li><a href="javascript:">precognition</a></li>
+                                <li><a href="javascript:">false awakening</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group switch">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">lucidity<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:">low</a></li>
+                                <li><a href="javascript:">medium</a></li>
+                                <li><a href="javascript:">high</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">symbols<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="form-horizontal custom symbols">
+                                        <div class="control-group">
+                                            <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete">
+                                                <option value="United States">United States</option>
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Albania">Albania</option>
+                                                <option value="Algeria">Algeria</option>
+                                            </select>
+                                        </div>
+                                        <span class="help-block">...or add new</span>
+                                        <div class="control-group">
+                                            <label class="control-label">name</label>
+                                            <div class="controls">
+                                                <input type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">description</label>
+                                            <div class="controls">
+                                                <textarea></textarea>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-block">Done</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">related dreams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="form-horizontal custom related-dreams">
+                                        <div class="control-group">
+                                            <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete">
+                                                <option value="United States">United States</option>
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Albania">Albania</option>
+                                                <option value="Algeria">Algeria</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-block">Done</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button class="btn btn-link pull-right starred"><i class="glyphicon glyphicon-star-empty"></i> </button>
+                    </div>
+
+                </div>
+
+                <div class="well dream">
+                    <div class="btn-group pull-right">
+                        <a href="#confirmation" role="button" data-toggle="modal" class="btn btn-mini btn-link action-delete"><i class="glyphicon glyphicon-trash"></i> </a>
+                    </div>
+                    <h2 contenteditable="true" class="title"></h2>
+                    <p contenteditable="true" class="description"></p>
+                    <p contenteditable="true" class="notes muted"></p>
+
+                    <div class="btn-toolbar">
+
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle action-sleep">sleep<span class="caret"></span></a>
+                            <ul class="dropdown-menu sleeping-periods">
+                                <li>
+                                    <div class="form-horizontal custom sleep">
+                                        <div class="control-group">
+                                            <label class="control-label">bed time</label>
+                                            <div class="controls">
+                                                <select class="" data-unit="hour" data-min="0" data-max="23" data-step="1">
+                                                    <option value="00" selected="">00</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                </select>
+                                                <select class="pull-right" data-unit="minute" data-min="0" data-max="55" data-step="5">
+                                                    <option value="00" selected="">00</option>
+                                                    <option value="05">05</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="20">20</option>
+                                                    <option value="25">25</option>
+                                                    <option value="30">30</option>
+                                                    <option value="35">35</option>
+                                                    <option value="40">40</option>
+                                                    <option value="45">45</option>
+                                                    <option value="50">50</option>
+                                                    <option value="55">55</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label">wake time</label>
+                                            <div class="controls">
+                                                <select class="" data-unit="hour" data-min="0" data-max="23" data-step="1">
+                                                    <option value="00" selected="">00</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                </select>
+                                                <select class="pull-right" data-unit="minute" data-min="0" data-max="55" data-step="5">
+                                                    <option value="00" selected="">00</option>
+                                                    <option value="05">05</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="20">20</option>
+                                                    <option value="25">25</option>
+                                                    <option value="30">30</option>
+                                                    <option value="35">35</option>
+                                                    <option value="40">40</option>
+                                                    <option value="45">45</option>
+                                                    <option value="50">50</option>
+                                                    <option value="55">55</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-block action-done">Done</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group switch">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle mood">mood<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:">=)</a></li>
+                                <li><a href="javascript:">:)</a></li>
+                                <li><a href="javascript:">:|</a></li>
+                                <li><a href="javascript:">:(</a></li>
+                                <li><a href="javascript:">:0</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group switch">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">recall<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:">blurry</a></li>
+                                <li><a href="javascript:">n/a</a></li>
+                                <li><a href="javascript:">clear</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group switch">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">type<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:">regular</a></li>
+                                <li><a href="javascript:">lucid</a></li>
+                                <li><a href="javascript:">OBE</a></li>
+                                <li><a href="javascript:">precognition</a></li>
+                                <li><a href="javascript:">false awakening</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group switch">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">lucidity<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:">low</a></li>
+                                <li><a href="javascript:">medium</a></li>
+                                <li><a href="javascript:">high</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">symbols<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="form-horizontal custom symbols">
+                                        <div class="control-group">
+                                            <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete">
+                                                <option value="United States">United States</option>
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Albania">Albania</option>
+                                                <option value="Algeria">Algeria</option>
+                                            </select>
+                                        </div>
+                                        <span class="help-block">...or add new</span>
+                                        <div class="control-group">
+                                            <label class="control-label">name</label>
+                                            <div class="controls">
+                                                <input type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">description</label>
+                                            <div class="controls">
+                                                <textarea></textarea>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-block">Done</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">related dreams<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="form-horizontal custom related-dreams">
+                                        <div class="control-group">
+                                            <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete">
+                                                <option value="United States">United States</option>
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Albania">Albania</option>
+                                                <option value="Algeria">Algeria</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-block">Done</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button class="btn btn-link pull-right starred" data-toggle="button"><i class="glyphicon glyphicon-star-empty"></i> </button>
+                    </div>
+
+                </div>
+
+                <a class="btn btn-primary pull-right action-add" href="javascript:">Add new dream</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- /container -->
+    <img src="img/clouds.png" />
+
+    <!-- confirmation modal -->
+    <div id="confirmation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmation-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="alert alert-block alert-danger">
+                        <h4>Warning!</h4>
+                        <p>Are you sure you want to delete <strong class="dream-to-delete">this dream</strong>?</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary btn-danger" data-dismiss="modal">Delete</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <img src="img/loader.gif" class="loader" />
+        <div class="btn-group">
+            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="glyphicon glyphicon-user"></i> Tamás<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="settings.html"><i class="glyphicon glyphicon-wrench"></i> Settings</a></li>
+                <li><a href="login.html"><i class="glyphicon glyphicon-off"></i> Sign out</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="span4 offset2">
+                    <div class="well">
+                        <h3>Search</h3>
+                        <div class="input-append">
+                            <input class="span8" type="text">
+                            <a href="search.html" class="btn"><i class="glyphicon glyphicon-search"></i> </a>
+                        </div>
+                        <a href="search.html">Advanced search...</a>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="well">
+                        <h3>Average sleep</h3>
+                        <p><i class="glyphicon glyphicon-time"></i> 6.5 hours</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4 offset2">
+                    <div class="top-symbols well clearfix">
+                        <a class="btn btn-mini btn-link pull-right" href="#"><i class="glyphicon glyphicon-pencil"></i> Symbol editor</a>
+                        <h3>Top symbols</h3>
+                        <ol>
+                            <li><span class="label">levitation</span> (17)</li>
+                            <li><span class="label">symbol #2</span> (11)</li>
+                            <li><span class="label">flying</span> (7)</li>
+                            <li><span class="label">cycling</span> (2)</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="well">
+                        <h3>Dream recall</h3>
+                        <img src="https://chart.googleapis.com/chart?chs=300x80&cht=lc&chd=t:40,60,60,45,47,75,70,72" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/chosen.jquery.min.js"></script>
+    <script src="js/default.js"></script>
+
+</body>
+</html>
