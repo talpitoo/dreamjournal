@@ -1,9 +1,9 @@
+/* helpers */
 var dreamToDelete;
 var captionLength = 0;
 var caption = "";
 var sleepingPeriods = new Array();
 
-/* helpers */
 function testTypingEffect() {
     caption = "dreamlog";
     type();
@@ -83,11 +83,8 @@ $(function () {
     $('.empty').hide();
     $('.action-add').on('click', function () {
         $('.empty').clone(true).insertAfter('.dream:last').removeClass('empty').fadeIn(function () {
-            //$("#autocompleteRelatedDreams").chosen();
-            $(".autocomplete").chosen();
-            //$("#autocompleteRelatedDreams2").chosen();
-            //$("#autocompleteSymbols").chosen({ addNewElementCallback: addTagCallback, addNewElementCallbackSelector: '#autocompleteSymbols', no_results_text: "Create new symbol" });
-            //$("#autocompleteSymbols2").chosen({ addNewElementCallback: addTagCallback, addNewElementCallbackSelector: '#autocompleteSymbols2', no_results_text: "Create new symbol" });
+            $(".autocomplete-dreams", this).chosen();
+            $(".autocomplete-symbols", this).chosen({ addNewElementCallback: addTagCallback,  no_results_text: "Create new symbol" });
         });
     });
 
@@ -174,16 +171,13 @@ $(function () {
         */
 
         /* direct select version */
-        $(selector).append($('<option></option>').val(tagText).html(tagText).attr("selected", "selected"));
-        $(selector).trigger("liszt:updated");
+        $(selector.form_field).append($('<option></option>').val(tagText).html(tagText).attr("selected", "selected"));
+        $(selector.form_field).trigger("liszt:updated");
         //newElement = $(selector + "_chzn li" + selector + "_chzn_o_" + ($(selector + " option").length - 1));
         //return newElement;
     };
-    //$("#autocompleteRelatedDreams").chosen();
-    //$("#autocompleteRelatedDreams2").chosen();
-    //$("#autocompleteSymbols").chosen({ addNewElementCallback: addTagCallback, addNewElementCallbackSelector: '#autocompleteSymbols', no_results_text: "Create new symbol" });
-    //$("#autocompleteSymbols2").chosen({ addNewElementCallback: addTagCallback, addNewElementCallbackSelector: '#autocompleteSymbols2', no_results_text: "Create new symbol" });
-    $(".autocomplete").chosen();
+    $(".dream:last .autocomplete-dreams").chosen();
+    $(".dream:last .autocomplete-symbols").chosen({ addNewElementCallback: addTagCallback, no_results_text: "Create new symbol" });
 
     //timepickers
     $('.dropdown-menu .custom').click(function (e) {

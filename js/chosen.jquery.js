@@ -1005,7 +1005,8 @@ Copyright (c) 2011 by Harvest
       return this.pending_backstroke = null;
     };
 
-    Chosen.prototype.keydown_checker = function(evt) {
+    Chosen.prototype.keydown_checker = function (evt) {
+      var _this = this;
       var stroke, _ref;
       stroke = (_ref = evt.which) != null ? _ref : evt.keyCode;
       this.search_field_scale();
@@ -1024,7 +1025,7 @@ Copyright (c) 2011 by Harvest
           break;
         case 13:
             if (this.new_term_to_be_added != null && this.options.addNewElementCallback != null) {
-                var newElement = this.options.addNewElementCallback(this.new_term_to_be_added, this.options.addNewElementCallbackSelector);
+                var newElement = this.options.addNewElementCallback(this.new_term_to_be_added, this);
 
                 if (newElement != null && newElement.length == 1) {
                     // KEY TO SOLVING THIS PROBLEM
