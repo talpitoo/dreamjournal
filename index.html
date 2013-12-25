@@ -11,6 +11,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/datepicker.css" rel="stylesheet">
     <link href="css/chosen.css" rel="stylesheet" />
+    <link href="css/bootstrap-timepicker.min.css" rel="stylesheet" />
     <link href="css/default.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -27,416 +28,379 @@
 </head>
 
 <body>
-
     <div class="container">
         <div class="row">
-            <div class="span4 offset2">
-                <img src="img/sleeping-sheep.png" />
+            <div class="col-sm-6 col-md-4 col-md-offset-2">
+                <img src="img/sleeping-sheep.png" alt="Sheep sleeping on a cloud" />
             </div>
-            <div class="span4">
+            <div class="col-sm-6 col-md-4">
                 <h2 class="typewriter">&gt;<span class="caption">dreamlog</span><span class="cursor">_</span></h2>
+                <label for="alternate" class="sr-only">Selected date</label>
                 <input type="text" id="alternate" class="hidden" />
                 <div class="datepicker"></div>
             </div>
         </div>
         <div class="row">
-            <div class="span8 offset2">
+            <div class="col-sm-12 col-md-8 col-md-offset-2">
                 <h1>Friday, November 16, 2012</h1>
-                <p contenteditable="true" class="daily"></p>
+                <label class="sr-only">daily happenings</label>
+                <textarea class="daily form-control" placeholder="Click to add daily happenings..."></textarea>
 
-                <div class="well dream empty">
-                    <div class="btn-group pull-right">
-                        <a href="#confirmation" role="button" data-toggle="modal" class="btn btn-mini btn-link action-delete"><i class="glyphicon glyphicon-trash"></i> </a>
+                <div class="panel panel-default dream">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form">
+                            <fieldset>
+                                <legend class="sr-only">Dream details</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">title</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control input-lg" placeholder="Click to add dream title...">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">description</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" rows="3" placeholder="Click to add dream description..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">notes</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="Optional notes about the dream...">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">bed time</label>
+                                    <div class="col-sm-3">
+                                        <div class="input-group bootstrap-timepicker">
+                                            <input type="text" class="form-control timepicker">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">wake time</label>
+                                    <div class="col-sm-3">
+                                        <div class="input-group bootstrap-timepicker">
+                                            <input type="text" class="form-control timepicker">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">mood</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio15">
+                                                :0
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio16">
+                                                :(
+                                            </label>
+                                            <label class="btn btn-default active">
+                                                <input type="radio" name="options" id="Radio17">
+                                                :|
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio18">
+                                                :)
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio19">
+                                                =)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">recall</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio20">
+                                                blurry
+                                            </label>
+                                            <label class="btn btn-default active">
+                                                <input type="radio" name="options" id="Radio21">
+                                                n/a
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio22">
+                                                clear
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">type</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default active">
+                                                <input type="radio" name="options" id="Radio23">
+                                                regular
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio24">
+                                                lucid
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio25">
+                                                OBE
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio26">
+                                                precognition
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio27">
+                                                false awakening
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">lucidity</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default active">
+                                                <input type="radio" name="options" id="Radio28">
+                                                none
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio29">
+                                                low
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio30">
+                                                medium
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio31">
+                                                high
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">symbols</label>
+                                    <div class="col-sm-10 symbols">
+                                        <select multiple="" data-placeholder="Existing or new..." class="form-control autocomplete autocomplete-symbols">
+                                            <option value="United States">United States</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Algeria">Algeria</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">related dreams</label>
+                                    <div class="col-sm-10 related-dreams">
+                                        <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete autocomplete-dreams">
+                                            <option value="United States">United States</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Algeria">Algeria</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
-                    <h2 contenteditable="true" class="title"></h2>
-                    <p contenteditable="true" class="description"></p>
-                    <p contenteditable="true" class="notes muted"></p>
-
-                    <div class="btn-toolbar">
-
-                        <div class="btn-group">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle action-sleep">sleep<span class="caret"></span></a>
-                            <ul class="dropdown-menu sleeping-periods">
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="form-horizontal custom sleep">
-                                        <span class="help-block">...or add new (e.g. afternoon nap):</span>
-
-                                        <div class="control-group">
-                                            <label class="control-label">bed time</label>
-                                            <div class="controls">
-                                                <select class="" data-unit="hour" data-min="0" data-max="23" data-step="1">
-                                                    <option value="00" selected="">00</option>
-                                                    <option value="01">01</option>
-                                                    <option value="02">02</option>
-                                                    <option value="03">03</option>
-                                                    <option value="04">04</option>
-                                                    <option value="05">05</option>
-                                                    <option value="06">06</option>
-                                                    <option value="07">07</option>
-                                                    <option value="08">08</option>
-                                                    <option value="09">09</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                    <option value="13">13</option>
-                                                    <option value="14">14</option>
-                                                    <option value="15">15</option>
-                                                    <option value="16">16</option>
-                                                    <option value="17">17</option>
-                                                    <option value="18">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                </select>
-                                                <select class="pull-right" data-unit="minute" data-min="0" data-max="55" data-step="5">
-                                                    <option value="00" selected="">00</option>
-                                                    <option value="05">05</option>
-                                                    <option value="10">10</option>
-                                                    <option value="15">15</option>
-                                                    <option value="20">20</option>
-                                                    <option value="25">25</option>
-                                                    <option value="30">30</option>
-                                                    <option value="35">35</option>
-                                                    <option value="40">40</option>
-                                                    <option value="45">45</option>
-                                                    <option value="50">50</option>
-                                                    <option value="55">55</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <label class="control-label">wake time</label>
-                                            <div class="controls">
-                                                <select class="" data-unit="hour" data-min="0" data-max="23" data-step="1">
-                                                    <option value="00" selected="">00</option>
-                                                    <option value="01">01</option>
-                                                    <option value="02">02</option>
-                                                    <option value="03">03</option>
-                                                    <option value="04">04</option>
-                                                    <option value="05">05</option>
-                                                    <option value="06">06</option>
-                                                    <option value="07">07</option>
-                                                    <option value="08">08</option>
-                                                    <option value="09">09</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                    <option value="13">13</option>
-                                                    <option value="14">14</option>
-                                                    <option value="15">15</option>
-                                                    <option value="16">16</option>
-                                                    <option value="17">17</option>
-                                                    <option value="18">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                </select>
-                                                <select class="pull-right" data-unit="minute" data-min="0" data-max="55" data-step="5">
-                                                    <option value="00" selected="">00</option>
-                                                    <option value="05">05</option>
-                                                    <option value="10">10</option>
-                                                    <option value="15">15</option>
-                                                    <option value="20">20</option>
-                                                    <option value="25">25</option>
-                                                    <option value="30">30</option>
-                                                    <option value="35">35</option>
-                                                    <option value="40">40</option>
-                                                    <option value="45">45</option>
-                                                    <option value="50">50</option>
-                                                    <option value="55">55</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <button class="btn btn-block action-done">Done</button>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group switch">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle mood">mood<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:">=)</a></li>
-                                <li><a href="javascript:">:)</a></li>
-                                <li><a href="javascript:">:|</a></li>
-                                <li><a href="javascript:">:(</a></li>
-                                <li><a href="javascript:">:0</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group switch">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">recall<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:">blurry</a></li>
-                                <li><a href="javascript:">n/a</a></li>
-                                <li><a href="javascript:">clear</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group switch">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">type<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:">regular</a></li>
-                                <li><a href="javascript:">lucid</a></li>
-                                <li><a href="javascript:">OBE</a></li>
-                                <li><a href="javascript:">precognition</a></li>
-                                <li><a href="javascript:">false awakening</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group switch">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">lucidity<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:">low</a></li>
-                                <li><a href="javascript:">medium</a></li>
-                                <li><a href="javascript:">high</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">symbols<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="form-horizontal custom symbols">
-                                        <div class="control-group">
-                                            <select multiple="" style="width: 250px;" data-placeholder="Existing or new..." class="autocomplete autocomplete-symbols">
-                                                <option value="United States">United States</option>
-                                                <option value="Afghanistan">Afghanistan</option>
-                                                <option value="Albania">Albania</option>
-                                                <option value="Algeria">Algeria</option>
-                                            </select>
-                                        </div>
-                                        <button class="btn btn-block">Done</button>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">related dreams<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="form-horizontal custom related-dreams">
-                                        <div class="control-group">
-                                            <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete autocomplete-dreams">
-                                                <option value="United States">United States</option>
-                                                <option value="Afghanistan">Afghanistan</option>
-                                                <option value="Albania">Albania</option>
-                                                <option value="Algeria">Algeria</option>
-                                            </select>
-                                        </div>
-                                        <button class="btn btn-block">Done</button>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <button class="btn btn-link pull-right starred"><i class="glyphicon glyphicon-star-empty"></i> </button>
+                    <div class="panel-footer clearfix">
+                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-adjust"></span></button>
+                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-bookmark"></span></button>
+                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
+                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-cloud"></span></button>
+                        <a href="#confirmation" role="button" data-toggle="modal" class="btn btn-default btn-xs btn-link pull-right action-delete"><span class="glyphicon glyphicon-trash"></span></a>
                     </div>
-
                 </div>
 
-                <div class="well dream">
-                    <div class="btn-group pull-right">
-                        <a href="#confirmation" role="button" data-toggle="modal" class="btn btn-mini btn-link action-delete"><i class="glyphicon glyphicon-trash"></i> </a>
-                    </div>
-                    <h2 contenteditable="true" class="title"></h2>
-                    <p contenteditable="true" class="description"></p>
-                    <p contenteditable="true" class="notes muted"></p>
-
-                    <div class="btn-toolbar">
-
-                        <div class="btn-group">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle action-sleep">sleep<span class="caret"></span></a>
-                            <ul class="dropdown-menu sleeping-periods">
-                                <li>
-                                    <div class="form-horizontal custom sleep">
-                                        <div class="control-group">
-                                            <label class="control-label">bed time</label>
-                                            <div class="controls">
-                                                <select class="" data-unit="hour" data-min="0" data-max="23" data-step="1">
-                                                    <option value="00" selected="">00</option>
-                                                    <option value="01">01</option>
-                                                    <option value="02">02</option>
-                                                    <option value="03">03</option>
-                                                    <option value="04">04</option>
-                                                    <option value="05">05</option>
-                                                    <option value="06">06</option>
-                                                    <option value="07">07</option>
-                                                    <option value="08">08</option>
-                                                    <option value="09">09</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                    <option value="13">13</option>
-                                                    <option value="14">14</option>
-                                                    <option value="15">15</option>
-                                                    <option value="16">16</option>
-                                                    <option value="17">17</option>
-                                                    <option value="18">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                </select>
-                                                <select class="pull-right" data-unit="minute" data-min="0" data-max="55" data-step="5">
-                                                    <option value="00" selected="">00</option>
-                                                    <option value="05">05</option>
-                                                    <option value="10">10</option>
-                                                    <option value="15">15</option>
-                                                    <option value="20">20</option>
-                                                    <option value="25">25</option>
-                                                    <option value="30">30</option>
-                                                    <option value="35">35</option>
-                                                    <option value="40">40</option>
-                                                    <option value="45">45</option>
-                                                    <option value="50">50</option>
-                                                    <option value="55">55</option>
-                                                </select>
+                <!-- this 'empty' dream is just a dummy mockup -->
+                <div class="panel panel-default dream empty">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form">
+                            <fieldset>
+                                <legend class="sr-only">Dream details</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">title</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control input-lg" placeholder="Click to add dream title...">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">description</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" rows="3" placeholder="Click to add dream description..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">notes</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="Optional notes about the dream...">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">sleep</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group">
+                                            <select class="form-control sleeping-periods">
+                                            </select>
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default action-new-sleep" type="button" data-toggle="collapse" data-target=".new-sleeping-period">...or add new (e.g. afternoon nap)</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="new-sleeping-period collapse">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">bed time</label>
+                                        <div class="col-sm-3">
+                                            <div class="input-group bootstrap-timepicker">
+                                                <input type="text" class="form-control timepicker">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
-
-                                        <div class="control-group">
-                                            <label class="control-label">wake time</label>
-                                            <div class="controls">
-                                                <select class="" data-unit="hour" data-min="0" data-max="23" data-step="1">
-                                                    <option value="00" selected="">00</option>
-                                                    <option value="01">01</option>
-                                                    <option value="02">02</option>
-                                                    <option value="03">03</option>
-                                                    <option value="04">04</option>
-                                                    <option value="05">05</option>
-                                                    <option value="06">06</option>
-                                                    <option value="07">07</option>
-                                                    <option value="08">08</option>
-                                                    <option value="09">09</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                    <option value="13">13</option>
-                                                    <option value="14">14</option>
-                                                    <option value="15">15</option>
-                                                    <option value="16">16</option>
-                                                    <option value="17">17</option>
-                                                    <option value="18">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                </select>
-                                                <select class="pull-right" data-unit="minute" data-min="0" data-max="55" data-step="5">
-                                                    <option value="00" selected="">00</option>
-                                                    <option value="05">05</option>
-                                                    <option value="10">10</option>
-                                                    <option value="15">15</option>
-                                                    <option value="20">20</option>
-                                                    <option value="25">25</option>
-                                                    <option value="30">30</option>
-                                                    <option value="35">35</option>
-                                                    <option value="40">40</option>
-                                                    <option value="45">45</option>
-                                                    <option value="50">50</option>
-                                                    <option value="55">55</option>
-                                                </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">wake time</label>
+                                        <div class="col-sm-3">
+                                            <div class="input-group bootstrap-timepicker">
+                                                <input type="text" class="form-control timepicker">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
-
-                                        <button class="btn btn-block action-done">Done</button>
                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group switch">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle mood">mood<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:">=)</a></li>
-                                <li><a href="javascript:">:)</a></li>
-                                <li><a href="javascript:">:|</a></li>
-                                <li><a href="javascript:">:(</a></li>
-                                <li><a href="javascript:">:0</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group switch">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">recall<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:">blurry</a></li>
-                                <li><a href="javascript:">n/a</a></li>
-                                <li><a href="javascript:">clear</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group switch">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">type<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:">regular</a></li>
-                                <li><a href="javascript:">lucid</a></li>
-                                <li><a href="javascript:">OBE</a></li>
-                                <li><a href="javascript:">precognition</a></li>
-                                <li><a href="javascript:">false awakening</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group switch">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">lucidity<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:">low</a></li>
-                                <li><a href="javascript:">medium</a></li>
-                                <li><a href="javascript:">high</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">symbols<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="form-horizontal custom symbols">
-                                        <div class="control-group">
-                                            <select multiple="" style="width: 250px;" data-placeholder="Existing or new..." class="autocomplete autocomplete-symbols">
-                                                <option value="United States">United States</option>
-                                                <option value="Afghanistan">Afghanistan</option>
-                                                <option value="Albania">Albania</option>
-                                                <option value="Algeria">Algeria</option>
-                                            </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">mood</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="option1">
+                                                :0
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="option2">
+                                                :(
+                                            </label>
+                                            <label class="btn btn-default active">
+                                                <input type="radio" name="options" id="option3">
+                                                :|
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio1">
+                                                :)
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio2">
+                                                =)
+                                            </label>
                                         </div>
-                                        <button class="btn btn-block">Done</button>
                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">related dreams<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="form-horizontal custom related-dreams">
-                                        <div class="control-group">
-                                            <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete autocomplete-dreams">
-                                                <option value="United States">United States</option>
-                                                <option value="Afghanistan">Afghanistan</option>
-                                                <option value="Albania">Albania</option>
-                                                <option value="Algeria">Algeria</option>
-                                            </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">recall</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio3">
+                                                blurry
+                                            </label>
+                                            <label class="btn btn-default active">
+                                                <input type="radio" name="options" id="Radio4">
+                                                n/a
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio5">
+                                                clear
+                                            </label>
                                         </div>
-                                        <button class="btn btn-block">Done</button>
                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <button class="btn btn-link pull-right starred" data-toggle="button"><i class="glyphicon glyphicon-star-empty"></i> </button>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">type</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default active">
+                                                <input type="radio" name="options" id="Radio6">
+                                                regular
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio7">
+                                                lucid
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio8">
+                                                OBE
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio9">
+                                                precognition
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio10">
+                                                false awakening
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">lucidity</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default active">
+                                                <input type="radio" name="options" id="Radio14">
+                                                none
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio11">
+                                                low
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio12">
+                                                medium
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio13">
+                                                high
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">symbols</label>
+                                    <div class="col-sm-10 symbols">
+                                        <select multiple="" data-placeholder="Existing or new..." class="form-control autocomplete autocomplete-symbols">
+                                            <option value="United States">United States</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Algeria">Algeria</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">related dreams</label>
+                                    <div class="col-sm-10 related-dreams">
+                                        <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete autocomplete-dreams">
+                                            <option value="United States">United States</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Algeria">Algeria</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
-
+                    <div class="panel-footer clearfix">
+                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-adjust"></span></button>
+                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-bookmark"></span></button>
+                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
+                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-cloud"></span></button>
+                        <a href="#confirmation" role="button" data-toggle="modal" class="btn btn-default btn-xs btn-link pull-right action-delete"><span class="glyphicon glyphicon-trash"></span></a>
+                    </div>
                 </div>
 
                 <a class="btn btn-primary pull-right action-add" href="javascript:">Add new dream</a>
@@ -445,7 +409,7 @@
 
     </div>
     <!-- /container -->
-    <img src="img/clouds.png" />
+    <img src="img/clouds.png" alt="Clouds" />
 
     <!-- confirmation modal -->
     <div id="confirmation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmation-label" aria-hidden="true">
@@ -458,7 +422,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-default" data-dismiss="modal">Cancel</button>
                     <button class="btn btn-primary btn-danger" data-dismiss="modal">Delete</button>
                 </div>
 
@@ -467,12 +431,13 @@
     </div>
 
     <div class="menu">
-        <img src="img/loader.gif" class="loader" />
+        <h3 class="sr-only">Logged in user</h3>
+        <img src="img/loader.gif" class="loader" alt="Preloader gif animation" />
         <div class="btn-group">
-            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="glyphicon glyphicon-user"></i> Tamás<span class="caret"></span></a>
+            <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><i class="glyphicon glyphicon-user"></i>&nbsp;Tamás&nbsp;<span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="settings.html"><i class="glyphicon glyphicon-wrench"></i> Settings</a></li>
-                <li><a href="login.html"><i class="glyphicon glyphicon-off"></i> Sign out</a></li>
+                <li><a href="settings.html"><i class="glyphicon glyphicon-wrench"></i>&nbsp;Settings</a></li>
+                <li><a href="login.html"><i class="glyphicon glyphicon-off"></i>&nbsp;Sign out</a></li>
             </ul>
         </div>
 
@@ -481,40 +446,42 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="span4 offset2">
+                <div class="col-sm-6 col-md-4 col-md-offset-2">
                     <div class="well">
                         <h3>Search</h3>
-                        <div class="input-append">
-                            <input class="span8" type="text">
-                            <a href="search.html" class="btn"><i class="glyphicon glyphicon-search"></i> </a>
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <a href="search.html" class="btn btn-default"><i class="glyphicon glyphicon-search"></i><span class="sr-only">Search</span></a>
+                            </span>
                         </div>
                         <a href="search.html">Advanced search...</a>
                     </div>
                 </div>
-                <div class="span4">
+                <div class="col-sm-6 col-md-4">
                     <div class="well">
                         <h3>Average sleep</h3>
-                        <p><i class="glyphicon glyphicon-time"></i> 6.5 hours</p>
+                        <p><i class="glyphicon glyphicon-time"></i>&nbsp;6.5 hours</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="span4 offset2">
+                <div class="col-sm-6 col-md-4 col-md-offset-2">
                     <div class="top-symbols well clearfix">
-                        <a class="btn btn-mini btn-link pull-right" href="#"><i class="glyphicon glyphicon-pencil"></i> Symbol editor</a>
+                        <a class="btn btn-xs btn-link pull-right" href="#"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Symbol editor</a>
                         <h3>Top symbols</h3>
                         <ol>
-                            <li><span class="label">levitation</span> (17)</li>
-                            <li><span class="label">symbol #2</span> (11)</li>
-                            <li><span class="label">flying</span> (7)</li>
-                            <li><span class="label">cycling</span> (2)</li>
+                            <li><span class="label label-default">levitation</span> (17)</li>
+                            <li><span class="label label-default">symbol #2</span> (11)</li>
+                            <li><span class="label label-default">flying</span> (7)</li>
+                            <li><span class="label label-default">cycling</span> (2)</li>
                         </ol>
                     </div>
                 </div>
-                <div class="span4">
+                <div class="col-sm-6 col-md-4">
                     <div class="well">
                         <h3>Dream recall</h3>
-                        <img src="https://chart.googleapis.com/chart?chs=300x80&cht=lc&chd=t:40,60,60,45,47,75,70,72" />
+                        <img src="https://chart.googleapis.com/chart?chs=300x80&cht=lc&chd=t:40,60,60,45,47,75,70,72" alt="Chart showing dream recall" />
                     </div>
                 </div>
             </div>
@@ -524,11 +491,11 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/chosen.jquery.js"></script>
+    <script src="js/bootstrap-timepicker.js"></script>
     <script src="js/default.js"></script>
-
 </body>
 </html>

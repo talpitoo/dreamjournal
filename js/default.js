@@ -40,7 +40,7 @@ function cursorAnimation() {
 
 $(function () {
 
-    /* generic */
+    /* on all pages */
     //typewriter
     setTimeout("cursorAnimation()", 600);
     testTypingEffect();
@@ -79,22 +79,49 @@ $(function () {
 
 
 
+    //prepare sleeping period
+    $('.timepicker').timepicker();
+    $('.action-new-sleep').on('click', function () {
+        //todo: refactor bed/wake time selection
+    });
+
+
+
     //add dream
     $('.empty').hide();
     $('.action-add').on('click', function () {
+        //hide and disable previous dream
+        $('.dream:first .form-group').hide();
+        $('.dream:first').find('.form-group:nth-child(1)').show();
+        $('.dream:first').find('.form-group:nth-child(2)').show();
+        $('.dream:first').find('.form-group:nth-child(3)').show();
+        $('.dream:first .form-control').attr('disabled', true);
+        $('.dream:first label').addClass('text-muted');
+        //close the dummy mockup
         $('.empty').clone(true).insertAfter('.dream:last').removeClass('empty').fadeIn(function () {
             $(".autocomplete-dreams", this).chosen();
-            $(".autocomplete-symbols", this).chosen({ addNewElementCallback: addTagCallback,  no_results_text: "Create new symbol" });
+            $(".autocomplete-symbols", this).chosen({ addNewElementCallback: addTagCallback, no_results_text: "Create new symbol" });
+            $('.timepicker', this).timepicker();
+        });
+        //copy the sleep period to the next dream as default
+        var sleepperiod = $('.dream:first').find('.timepicker').eq(0).val() + " - "
+            + $(this).parent().find('.timepicker').eq(1).val();
+        sleepingPeriods[sleepingPeriods.length] = sleepperiod;
+        $.each(sleepingPeriods, function (key, value) {
+            $('.sleeping-periods')
+                .append($("<option></option>")
+                .attr("value", key)
+                .text(value));
         });
     });
 
     //delete dream
     $('.action-delete').on('click', function () {
         dreamToDelete = $(this).parents('.dream');
-        if (dreamToDelete.children('h2').html() == "") {
+        if (dreamToDelete.find('input[type="text"]:nth-child(1)').val() == "") {
             $('.dream-to-delete').html("this dream");
         } else {
-            $('.dream-to-delete').html(dreamToDelete.children('h2').html());
+            $('.dream-to-delete').html(dreamToDelete.find('input[type="text"]:nth-child(1)').val());
         }
     });
     $('#confirmation .btn-primary').on('click', function () {
@@ -103,57 +130,31 @@ $(function () {
         });
     });
 
-    //contenteditable
+    //dummy save to database
     $('.loader').hide();
-    $('[contenteditable]').on('blur', function () {
+    $('.form-control').on('blur', function () {
         $('.loader').show(0, function () {
             $(this).fadeOut(2000);
         });
         //localStorage.setItem('contenteditable', this.innerHTML);
-    });
-
-    //dream details
-    $('.switch .dropdown-menu li a').on('click', function () {
-        if ($(this).parents('.btn-group').children('.dropdown-toggle').hasClass('mood')) {
-            $(this).parents('.btn-group').children('.dropdown-toggle').html($(this).html());
-        } else {
-            var innertext = $(this).parents('.btn-group').children('.dropdown-toggle').text();
-            var labelstring = innertext.split(" ");
-            label = labelstring[0].replace(":", "");
-            $(this).parents('.btn-group').children('.dropdown-toggle').html(label + ': ' + $(this).html());
-        }
-    });
-    $('.starred').on('click', function () {
-        if ($(this).children('.glyphicon').hasClass('glyphicon-star-empty')) {
-            $(this).children('.glyphicon').removeClass('glyphicon-star-empty').addClass('glyphicon-star');
-        } else {
-            $(this).children('.glyphicon').removeClass('glyphicon-star').addClass('glyphicon-star-empty');
-        }
-    });
-    $('.sleep .action-done').on('click', function () {
-        var sleepperiod = $(this).parent().find('select').eq(0).val() + ":"
-            + $(this).parent().find('select').eq(1).val() + " - "
-            + $(this).parent().find('select').eq(2).val() + ":"
-            + $(this).parent().find('select').eq(3).val();
-        sleepingPeriods[sleepingPeriods.length] = sleepperiod;
-        $(this).parents('.btn-group').children('.dropdown-toggle.action-sleep').html(sleepperiod);
-        $(this).parents('.btn-group').removeClass('open');
-        $('.sleeping-periods').prepend("<li><a href='javascript:'>" + sleepingPeriods[0] + "</a></li>");
-        $('.dropdown-toggle.action-sleep').html(sleepingPeriods[0]);
+        //
+        //http://www.json.org/js.html
+        //var testObject = { 'one': 1, 'two': 2, 'three': 3 };
+        //// Put the object into storage
+        //localStorage.setItem('testObject', JSON.stringify(testObject));
+        //// Retrieve the object from storage
+        //var retrievedObject = localStorage.getItem('testObject');
+        //console.log('retrievedObject: ', JSON.parse(retrievedObject));
     });
 
     //autocomplete
-    var addTagCallback = function(tagText, selector) {
+    var addTagCallback = function (tagText, selector) {
         $('.autocomplete-symbols').append($('<option></option>').val(tagText).html(tagText));
         $("option:last", selector.form_field).attr('selected', 'selected');
         $('.autocomplete-symbols').trigger("liszt:updated");
     };
-    $(".dream:last .autocomplete-dreams").chosen();
-    $(".dream:last .autocomplete-symbols").chosen({ addNewElementCallback: addTagCallback, no_results_text: "Create new symbol" });
-
-    //timepickers
-    $('.dropdown-menu .custom').click(function (e) {
-        e.stopPropagation();
-    });
+    $(".dream:first .autocomplete-dreams").chosen();
+    $(".dream:first .autocomplete-symbols").chosen({ addNewElementCallback: addTagCallback, no_results_text: "Create new symbol" });
 
 });
+
