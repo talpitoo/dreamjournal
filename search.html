@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Advanced search | dreamlog</title>
+    <title>dreamlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -11,6 +11,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/datepicker.css" rel="stylesheet">
     <link href="css/chosen.css" rel="stylesheet" />
+    <link href="css/bootstrap-timepicker.min.css" rel="stylesheet" />
     <link href="css/default.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -26,32 +27,30 @@
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
 </head>
 
-<body>
-
+<body class="js-search">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-2">
-                <img src="img/sleeping-sheep.png" />
+            <div class="col-sm-6 col-md-4 col-md-offset-2">
+                <img src="img/sleeping-sheep.png" alt="Sheep sleeping on a cloud" />
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6 col-md-4">
                 <h2 class="typewriter"><a href="index.html">&gt;<span class="caption">dreamlog</span><span class="cursor">_</span></a></h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-12 col-md-8 col-md-offset-2">
                 <h1>Advanced search</h1>
-
                 <form class="form-horizontal">
                     <div class="form-group">
                         <label class="col-sm-4 control-label" for="keywords">Keywords</label>
                         <div class="col-sm-8">
-                            <input type="text" id="keywords">
+                            <input type="text" id="keywords" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Symbols</label>
                         <div class="col-sm-8">
-                            <select multiple="" style="width: 250px;" data-placeholder="Choose..." class="autocomplete">
+                            <select multiple="" style="width: 250px;" data-placeholder="Choose..." class="form-control autocomplete js-autocomplete-symbols">
                                 <option value="United States">United States</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -59,154 +58,173 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group date">
+                    <div class="form-group dates">
                         <label class="col-sm-4 control-label">Date between</label>
-                        <div class="col-sm-8">
-                            <span class="pull-left col-sm-4">
-                                <span class="input-group">
-                                    <input type="text">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i> </span>&nbsp;and&nbsp;
-                                </span>
-                            </span>
-                            <span class="pull-left col-sm-3">
-                                <span class="input-group">
-                                    <input type="text">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i> </span>
-                                </span>
-                            </span>
+                        <div class="col-sm-8 form-inline">
+                            <div class="form-group">
+                                <label class="sr-only control-label">start date</label>
+                                <div class="col-sm-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            and
+                            <div class="form-group">
+                                <label class="sr-only control-label">end date</label>
+                                <div class="col-sm-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Time between</label>
-                        <div class="col-sm-8">
-                            <select class="col-sm-2" data-unit="hour" data-min="0" data-max="23" data-step="1">
-                                <option value="0" selected="">00</option>
-                                <option value="1">01</option>
-                                <option value="2">02</option>
-                                <option value="3">03</option>
-                                <option value="4">04</option>
-                                <option value="5">05</option>
-                                <option value="6">06</option>
-                                <option value="7">07</option>
-                                <option value="8">08</option>
-                                <option value="9">09</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                            </select>
-                            and 
-                            <select class="col-sm-2" data-unit="hour" data-min="0" data-max="23" data-step="1">
-                                <option value="0" selected="">00</option>
-                                <option value="1">01</option>
-                                <option value="2">02</option>
-                                <option value="3">03</option>
-                                <option value="4">04</option>
-                                <option value="5">05</option>
-                                <option value="6">06</option>
-                                <option value="7">07</option>
-                                <option value="8">08</option>
-                                <option value="9">09</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Mood</label>
-                        <div class="col-sm-8">
-                            <div class="btn-group" data-toggle="buttons-checkbox">
-                                <button type="button" class="btn">=)</button>
-                                <button type="button" class="btn">:)</button>
-                                <button type="button" class="btn">:|</button>
-                                <button type="button" class="btn">:(</button>
-                                <button type="button" class="btn">:0</button>
+                        <div class="col-sm-8 form-inline">
+                            <div class="form-group">
+                                <label class="sr-only control-label">start time</label>
+                                <div class="col-sm-12">
+                                    <div class="input-group bootstrap-timepicker">
+                                        <input type="text" class="form-control timepicker">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            and
+                            <div class="form-group">
+                                <label class="sr-only control-label">end time</label>
+                                <div class="col-sm-12">
+                                    <div class="input-group bootstrap-timepicker">
+                                        <input type="text" class="form-control timepicker">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Recall</label>
+                        <label class="col-sm-4 control-label">mood</label>
                         <div class="col-sm-8">
-                            <div class="btn-group" data-toggle="buttons-checkbox">
-                                <button type="button" class="btn">blurry</button>
-                                <button type="button" class="btn">n/a</button>
-                                <button type="button" class="btn">clear</button>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    :0
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    :(
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    :|
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    :)
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    =)
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Type</label>
+                        <label class="col-sm-4 control-label">recall</label>
                         <div class="col-sm-8">
-                            <div class="btn-group" data-toggle="buttons-checkbox">
-                                <button type="button" class="btn">regular</button>
-                                <button type="button" class="btn">lucid</button>
-                                <button type="button" class="btn">OBE</button>
-                                <button type="button" class="btn">precognition</button>
-                                <button type="button" class="btn">false awakening</button>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    blurry
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    n/a
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    clear
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Lucidity</label>
+                        <label class="col-sm-4 control-label">type</label>
                         <div class="col-sm-8">
-                            <div class="btn-group" data-toggle="buttons-checkbox">
-                                <button type="button" class="btn">low</button>
-                                <button type="button" class="btn">medium</button>
-                                <button type="button" class="btn">high</button>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    regular
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    lucid
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    OBE
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    precognition
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    false awakening
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-4 control-label">lucidity</label>
                         <div class="col-sm-8">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                starred
-                            </label>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    none
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    low
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    medium
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="options">
+                                    high
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="col-sm-4 control-label"></div>
                         <div class="col-sm-8">
-                            <button type="submit" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-search"></i>  Search</button>
+                            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</button>
                         </div>
                     </div>
                 </form>
 
+
             </div>
         </div>
-
     </div>
     <!-- /container -->
-    <img src="img/clouds.png" />
+    <img src="img/clouds.png" alt="Clouds" />
 
     <div class="menu">
-        <img src="img/loader.gif" class="loader" />
+        <h3 class="sr-only">Logged in user</h3>
+        <img src="img/loader.gif" class="loader" alt="Preloader gif animation" />
         <div class="btn-group">
-            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="glyphicon glyphicon-user"></i> Tamás<span class="caret"></span></a>
+            <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><i class="glyphicon glyphicon-user"></i>&nbsp;Tamás&nbsp;<span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#"><i class="glyphicon glyphicon-wrench"></i> Settings</a></li>
-                <li><a href="login.html"><i class="glyphicon glyphicon-off"></i> Sign out</a></li>
+                <li><a href="settings.html"><i class="glyphicon glyphicon-wrench"></i>&nbsp;Settings</a></li>
+                <li><a href="login.html"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sign out</a></li>
             </ul>
         </div>
 
@@ -215,41 +233,53 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-2">
+                <div class="col-sm-6 col-md-4 col-md-offset-2">
                     <div class="well">
                         <h3>Search</h3>
-                        <div class="input-append">
-                            <input class="col-sm-8" type="text">
-                            <a href="search.html" class="btn"><i class="glyphicon glyphicon-search"></i> </a>
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <a href="search.html" class="btn btn-default"><i class="glyphicon glyphicon-search"></i><span class="sr-only">Search</span></a>
+                            </span>
                         </div>
                         <a href="search.html">Advanced search...</a>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6 col-md-4">
                     <div class="well">
                         <h3>Average sleep</h3>
-                        <p><i class="glyphicon glyphicon-time"></i> 6.5 hours</p>
+                        <p><i class="glyphicon glyphicon-time"></i>&nbsp;6.5 hours</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-2">
+                <div class="col-sm-6 col-md-4 col-md-offset-2">
                     <div class="top-symbols well clearfix">
-                        <a class="btn btn-xs btn-link pull-right" href="#"><i class="glyphicon glyphicon-pencil"></i> Symbol editor</a>
+                        <a class="btn btn-xs btn-link pull-right" href="#"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Symbol editor</a>
                         <h3>Top symbols</h3>
                         <ol>
-                            <li><span class="label">levitation</span> (17)</li>
-                            <li><span class="label">symbol #2</span> (11)</li>
-                            <li><span class="label">flying</span> (7)</li>
-                            <li><span class="label">cycling</span> (2)</li>
+                            <li><span class="label label-default">levitation</span> (17)</li>
+                            <li><span class="label label-default">symbol #2</span> (11)</li>
+                            <li><span class="label label-default">flying</span> (7)</li>
+                            <li><span class="label label-default">cycling</span> (2)</li>
                         </ol>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6 col-md-4">
                     <div class="well">
                         <h3>Dream recall</h3>
-                        <img src="https://chart.googleapis.com/chart?chs=300x80&cht=lc&chd=t:40,60,60,45,47,75,70,72" />
+                        <img src="https://chart.googleapis.com/chart?chs=300x80&cht=lc&chd=t:40,60,60,45,47,75,70,72" alt="Chart showing dream recall" />
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-md-offset-2">
+                    <ul class="list-inline">
+                        <li><a href="#"><small>About</small></a></li>
+                        <li><a href="#"><small>Help</small></a></li>
+                        <li><a href="#"><small>Blog</small></a></li>
+                        <li class="pull-right"><small>&copy; 2014 Dreaming sheep</small></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -261,8 +291,8 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/chosen.jquery.min.js"></script>
+    <script src="js/chosen.jquery.js"></script>
+    <script src="js/bootstrap-timepicker.js"></script>
     <script src="js/default.js"></script>
-
 </body>
 </html>

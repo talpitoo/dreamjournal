@@ -1,67 +1,53 @@
 /* Dream journal by TT */
 
 body { background-color: #eee; }
-
 .container { padding: 20px; }
-
 footer { background: #EEEEEE; background-image: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#999999)); /* Chrome, Safari 4+ */ background-image: -webkit-linear-gradient(top, #EEEEEE, #999999); /* Chrome 10-25, iOS 5+, Safari 5.1+ */ background-image: -moz-linear-gradient(top, #EEEEEE, #999999); /* Firefox 3.6-15 */ background-image: -o-linear-gradient(top, #EEEEEE, #999999); /* Opera 11.10-12.00 */ background-image: linear-gradient(to bottom, #EEEEEE, #999999); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */ padding-top: 20px; margin-top: 20px; }
-
 footer .well { min-height: 180px; }
-
 footer .well h3 { margin: 0 0 20px 0; color: #888; }
-
 .menu { position: absolute; top: 10px; right: 10px; }
-
 img { display: block; margin: auto; max-width: 100%; }
-
 .loader { display: inline-block; margin-right: 10px; }
-
 textarea { max-width: 100%; }
-
-.ui-datepicker { width: 100%; background: white; }
-
+.ui-datepicker { background: white; }
+.ui-datepicker-inline { width: 100%; }
 h1 { margin: 40px 0 20px 0; }
-
-h1 a, h1 a:hover { color: #000; }
-
+h1 a, h1 a:hover, h2 a, h2 a:hover, footer a, footer a:hover { color: #333; }
 .typewriter { font-family: 'Courier New', 'Lucida Console'; font-size: 40px; margin: 0 0 30px 0; }
-
 .dream { background: white; }
-
 .dream .btn-link { color: #999; }
-
-.daily { background-color: transparent; box-shadow: none; border: 1px solid transparent; }
-
+.dream.inactive { background-color: #f5f5f5; }
+.dream.inactive .panel-footer { border-top: none; }
+.dream.inactive .form-group { display: none; margin-bottom: 0; }
+.dream.inactive .form-group:nth-child(1), .dream.inactive .form-group:nth-child(2), .dream.inactive .form-group:nth-child(3) { display: block; }
+.dream.inactive label { color: #999; display: none; }
+.dream.inactive .form-control { border: none; box-shadow: none; background-color: #f5f5f5; }
+.dream.inactive textarea { resize: none; }
+.daily { background-color: transparent; box-shadow: none; border: 1px solid transparent; margin-bottom: 15px; }
 .custom { min-width: 250px; margin: 3px 20px; }
-
 .custom label { font-weight: normal; }
 
 
 
 /* login page */
 .login form { padding: 30px 20px; }
-
 .login .text-right { margin-top: 20px; }
-
-.login .text-right a { display: block; }
-
 .login .btn { margin-top: 10px; }
-
+.login footer { background: none; }
 .login .compact input[type="text"],
 .login .compact input[type="password"] { position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-
 .login .compact input[type="text"]:focus,
 .login .compact input[type="password"]:focus { z-index: 2; }
-
 .login .compact input[type="text"] { margin-bottom: -1px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-
 .login .compact input[type="password"] { border-top-left-radius: 0; border-top-right-radius: 0; }
+iframe { max-width: 100%; }
 
 
 
 /* responsive */
 @media (min-width: 768px) {
     body { padding-top: 60px; }
+    iframe { margin: 50px auto; display: block; }
 }
 
 @media (min-width: 992px) {

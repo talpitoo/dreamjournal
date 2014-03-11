@@ -11,6 +11,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/datepicker.css" rel="stylesheet">
     <link href="css/chosen.css" rel="stylesheet" />
+    <link href="css/bootstrap-timepicker.min.css" rel="stylesheet" />
     <link href="css/default.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -26,80 +27,59 @@
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
 </head>
 
-<body class="settings">
-
+<body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-2">
-                <img src="img/sleeping-sheep.png" />
+            <div class="col-sm-6 col-md-4 col-md-offset-2">
+                <img src="img/sleeping-sheep.png" alt="Sheep sleeping on a cloud" />
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6 col-md-4">
                 <h2 class="typewriter"><a href="index.html">&gt;<span class="caption">dreamlog</span><span class="cursor">_</span></a></h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-12 col-md-8 col-md-offset-2">
                 <h1>Settings</h1>
-
                 <form class="form-horizontal">
                     <div class="form-group">
                         <label class="col-sm-4 control-label" for="name">Name</label>
                         <div class="col-sm-8">
-                            <input type="text" id="name" placeholder="Tamás" disabled>
+                            <input type="text" id="name" value="Tamás" class="form-control" disabled>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label" for="inputEmail">Email</label>
                         <div class="col-sm-8">
-                            <input type="text" id="inputEmail" placeholder="mounttain@gmail.com" disabled>
+                            <input type="text" id="inputEmail" value="mounttain@gmail.com" class="form-control" disabled>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label" for="inputPassword">Password</label>
                         <div class="col-sm-8">
-                            <input type="password" id="inputPassword" placeholder="*****" disabled>
+                            <input type="password" id="inputPassword" value="*****" class="form-control" disabled>
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-4 control-label"></label>
                         <div class="col-sm-8">
-                            <button type="submit" class="btn btn-lg btn-primary">Edit</button>
+                            <button type="submit" class="btn btn-primary">Edit</button>
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
-
     </div>
     <!-- /container -->
-    <img src="img/clouds.png" />
-
-    <!-- confirmation modal -->
-    <div id="confirmation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmation-label" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="alert alert-block alert-danger">
-                        <h4>Warning!</h4>
-                        <p>Are you sure you want to delete <strong class="dream-to-delete">this dream</strong>?</p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary btn-danger" data-dismiss="modal">Delete</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    <img src="img/clouds.png" alt="Clouds" />
 
     <div class="menu">
-        <img src="img/loader.gif" class="loader" />
+        <h3 class="sr-only">Logged in user</h3>
+        <img src="img/loader.gif" class="loader" alt="Preloader gif animation" />
         <div class="btn-group">
-            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="glyphicon glyphicon-user"></i> Tamás<span class="caret"></span></a>
+            <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><i class="glyphicon glyphicon-user"></i>&nbsp;Tamás&nbsp;<span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#"><i class="glyphicon glyphicon-wrench"></i> Settings</a></li>
-                <li><a href="login.html"><i class="glyphicon glyphicon-off"></i> Sign out</a></li>
+                <li><a href="settings.html"><i class="glyphicon glyphicon-wrench"></i>&nbsp;Settings</a></li>
+                <li><a href="login.html"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sign out</a></li>
             </ul>
         </div>
 
@@ -108,41 +88,53 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-2">
+                <div class="col-sm-6 col-md-4 col-md-offset-2">
                     <div class="well">
                         <h3>Search</h3>
-                        <div class="input-append">
-                            <input class="col-sm-8" type="text">
-                            <a href="search.html" class="btn"><i class="glyphicon glyphicon-search"></i> </a>
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <a href="search.html" class="btn btn-default"><i class="glyphicon glyphicon-search"></i><span class="sr-only">Search</span></a>
+                            </span>
                         </div>
                         <a href="search.html">Advanced search...</a>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6 col-md-4">
                     <div class="well">
                         <h3>Average sleep</h3>
-                        <p><i class="glyphicon glyphicon-time"></i> 6.5 hours</p>
+                        <p><i class="glyphicon glyphicon-time"></i>&nbsp;6.5 hours</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-2">
+                <div class="col-sm-6 col-md-4 col-md-offset-2">
                     <div class="top-symbols well clearfix">
-                        <a class="btn btn-xs btn-link pull-right" href="#"><i class="glyphicon glyphicon-pencil"></i> Symbol editor</a>
+                        <a class="btn btn-xs btn-link pull-right" href="#"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Symbol editor</a>
                         <h3>Top symbols</h3>
                         <ol>
-                            <li><span class="label">levitation</span> (17)</li>
-                            <li><span class="label">symbol #2</span> (11)</li>
-                            <li><span class="label">flying</span> (7)</li>
-                            <li><span class="label">cycling</span> (2)</li>
+                            <li><span class="label label-default">levitation</span> (17)</li>
+                            <li><span class="label label-default">symbol #2</span> (11)</li>
+                            <li><span class="label label-default">flying</span> (7)</li>
+                            <li><span class="label label-default">cycling</span> (2)</li>
                         </ol>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6 col-md-4">
                     <div class="well">
                         <h3>Dream recall</h3>
-                        <img src="https://chart.googleapis.com/chart?chs=300x80&cht=lc&chd=t:40,60,60,45,47,75,70,72" />
+                        <img src="https://chart.googleapis.com/chart?chs=300x80&cht=lc&chd=t:40,60,60,45,47,75,70,72" alt="Chart showing dream recall" />
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-md-offset-2">
+                    <ul class="list-inline">
+                        <li><a href="#"><small>About</small></a></li>
+                        <li><a href="#"><small>Help</small></a></li>
+                        <li><a href="#"><small>Blog</small></a></li>
+                        <li class="pull-right"><small>&copy; 2014 Dreaming sheep</small></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -154,8 +146,8 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/chosen.jquery.min.js"></script>
+    <script src="js/chosen.jquery.js"></script>
+    <script src="js/bootstrap-timepicker.js"></script>
     <script src="js/default.js"></script>
-
 </body>
 </html>

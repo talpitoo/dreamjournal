@@ -12,6 +12,7 @@
     <link href="css/datepicker.css" rel="stylesheet">
     <link href="css/chosen.css" rel="stylesheet" />
     <link href="css/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="css/lucidicon.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -54,13 +55,13 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">title</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control input-lg" placeholder="Click to add dream title...">
+                                        <input type="text" class="form-control input-lg" placeholder="Dream title...">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">description</label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control" rows="3" placeholder="Click to add dream description..."></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Dream description..."></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -93,23 +94,23 @@
                                         <div class="btn-group" data-toggle="buttons">
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio15">
-                                                :0
+                                                <span class="lucidicon-shocked"></span>
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio16">
-                                                :(
+                                                <span class="lucidicon-sad"></span>
                                             </label>
                                             <label class="btn btn-default active">
                                                 <input type="radio" name="options" id="Radio17">
-                                                :|
+                                                <span class="lucidicon-neutral"></span>
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio18">
-                                                :)
+                                                <span class="lucidicon-smiley"></span>
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio19">
-                                                =)
+                                                <span class="lucidicon-cool"></span>
                                             </label>
                                         </div>
                                     </div>
@@ -120,15 +121,15 @@
                                         <div class="btn-group" data-toggle="buttons">
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio20">
-                                                blurry
+                                                <span class="lucidicon-star-empty"></span> blurry
                                             </label>
                                             <label class="btn btn-default active">
                                                 <input type="radio" name="options" id="Radio21">
-                                                n/a
+                                                <span class="lucidicon-star-half"></span> n/a
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio22">
-                                                clear
+                                                <span class="lucidicon-star-full"></span> clear
                                             </label>
                                         </div>
                                     </div>
@@ -136,38 +137,34 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">type</label>
                                     <div class="col-sm-10">
-                                        <div class="btn-group" data-toggle="buttons">
+                                        <div class="btn-group js-type" data-toggle="buttons">
                                             <label class="btn btn-default active">
                                                 <input type="radio" name="options" id="Radio23">
                                                 regular
                                             </label>
-                                            <label class="btn btn-default">
-                                                <input type="radio" name="options" id="Radio24">
-                                                lucid
+                                            <label class="btn btn-default js-lucid">
+                                                <input type="radio" name="options" id="Radio24" >
+                                                <span class="lucidicon-lightning"></span> lucid
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio25">
-                                                OBE
+                                                <span class="lucidicon-users"></span> OBE
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio26">
-                                                precognition
+                                                <span class="lucidicon-camera"></span> precognition
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio27">
-                                                false awakening
+                                                <span class="lucidicon-alarm"></span> false awakening
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group js-lucidity-level">
                                     <label class="col-sm-2 control-label">lucidity</label>
                                     <div class="col-sm-10">
                                         <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-default active">
-                                                <input type="radio" name="options" id="Radio28">
-                                                none
-                                            </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio29">
                                                 low
@@ -185,8 +182,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">symbols</label>
-                                    <div class="col-sm-10 symbols">
-                                        <select multiple="" data-placeholder="Existing or new..." class="form-control autocomplete autocomplete-symbols">
+                                    <div class="col-sm-10">
+                                        <select multiple="" data-placeholder="Existing or new..." class="form-control autocomplete js-autocomplete-symbols">
                                             <option value="United States">United States</option>
                                             <option value="Afghanistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
@@ -196,8 +193,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">related dreams</label>
-                                    <div class="col-sm-10 related-dreams">
-                                        <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete autocomplete-dreams">
+                                    <div class="col-sm-10">
+                                        <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete js-autocomplete-dreams">
                                             <option value="United States">United States</option>
                                             <option value="Afghanistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
@@ -209,11 +206,13 @@
                         </form>
                     </div>
                     <div class="panel-footer clearfix">
-                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-adjust"></span></button>
-                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-bookmark"></span></button>
-                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
-                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-cloud"></span></button>
-                        <a href="#confirmation" role="button" data-toggle="modal" class="btn btn-default btn-xs btn-link pull-right action-delete"><span class="glyphicon glyphicon-trash"></span></a>
+                        <button class="btn btn-link"><span class="lucidicon-smiley"></span></button>
+                        <button class="btn btn-link"><span class="lucidicon-star-half"></span></button>
+                        <button class="btn btn-link"><span class="lucidicon-lightning"></span></button>
+                        <button class="btn btn-link"><span class="lucidicon-tags"></span> 2</button>
+                        <button class="btn btn-link"><span class="lucidicon-link"></span></button>
+                        <button class="btn btn-link pull-right js-edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                        <a href="#confirmation" role="button" data-toggle="modal" class="btn btn-default btn-link pull-right js-delete"><span class="glyphicon glyphicon-trash"></span></a>
                     </div>
                 </div>
 
@@ -226,13 +225,13 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">title</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control input-lg" placeholder="Click to add dream title...">
+                                        <input type="text" class="form-control input-lg" placeholder="Dream title...">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">description</label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control" rows="3" placeholder="Click to add dream description..."></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Dream description..."></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -248,7 +247,7 @@
                                             <select class="form-control sleeping-periods">
                                             </select>
                                             <span class="input-group-btn">
-                                                <button class="btn btn-default action-new-sleep" type="button" data-toggle="collapse" data-target=".new-sleeping-period">...or add new (e.g. afternoon nap)</button>
+                                                <button class="btn btn-default js-new-sleep" type="button" data-toggle="collapse" data-target=".new-sleeping-period">...or add new (e.g. afternoon nap)</button>
                                             </span>
                                         </div>
                                     </div>
@@ -278,24 +277,24 @@
                                     <div class="col-sm-10">
                                         <div class="btn-group" data-toggle="buttons">
                                             <label class="btn btn-default">
-                                                <input type="radio" name="options" id="option1">
-                                                :0
-                                            </label>
-                                            <label class="btn btn-default">
-                                                <input type="radio" name="options" id="option2">
-                                                :(
-                                            </label>
-                                            <label class="btn btn-default active">
-                                                <input type="radio" name="options" id="option3">
-                                                :|
-                                            </label>
-                                            <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio1">
-                                                :)
+                                                <span class="lucidicon-shocked"></span>
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio2">
-                                                =)
+                                                <span class="lucidicon-sad"></span>
+                                            </label>
+                                            <label class="btn btn-default active">
+                                                <input type="radio" name="options" id="Radio14">
+                                                <span class="lucidicon-neutral"></span>
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio28">
+                                                <span class="lucidicon-smiley"></span>
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="Radio32">
+                                                <span class="lucidicon-cool"></span>
                                             </label>
                                         </div>
                                     </div>
@@ -306,15 +305,15 @@
                                         <div class="btn-group" data-toggle="buttons">
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio3">
-                                                blurry
+                                                <span class="lucidicon-star-empty"></span> blurry
                                             </label>
                                             <label class="btn btn-default active">
                                                 <input type="radio" name="options" id="Radio4">
-                                                n/a
+                                                <span class="lucidicon-star-half"></span> n/a
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio5">
-                                                clear
+                                                <span class="lucidicon-star-full"></span> clear
                                             </label>
                                         </div>
                                     </div>
@@ -322,38 +321,34 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">type</label>
                                     <div class="col-sm-10">
-                                        <div class="btn-group" data-toggle="buttons">
+                                        <div class="btn-group js-type" data-toggle="buttons">
                                             <label class="btn btn-default active">
                                                 <input type="radio" name="options" id="Radio6">
                                                 regular
                                             </label>
-                                            <label class="btn btn-default">
+                                            <label class="btn btn-default js-lucid">
                                                 <input type="radio" name="options" id="Radio7">
-                                                lucid
+                                                <span class="lucidicon-lightning"></span> lucid
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio8">
-                                                OBE
+                                                <span class="lucidicon-users"></span> OBE
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio9">
-                                                precognition
+                                                <span class="lucidicon-camera"></span> precognition
                                             </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio10">
-                                                false awakening
+                                                <span class="lucidicon-alarm"></span> false awakening
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group js-lucidity-level">
                                     <label class="col-sm-2 control-label">lucidity</label>
                                     <div class="col-sm-10">
                                         <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-default active">
-                                                <input type="radio" name="options" id="Radio14">
-                                                none
-                                            </label>
                                             <label class="btn btn-default">
                                                 <input type="radio" name="options" id="Radio11">
                                                 low
@@ -372,7 +367,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">symbols</label>
                                     <div class="col-sm-10 symbols">
-                                        <select multiple="" data-placeholder="Existing or new..." class="form-control autocomplete autocomplete-symbols">
+                                        <select multiple="" data-placeholder="Existing or new..." class="form-control autocomplete js-autocomplete-symbols">
                                             <option value="United States">United States</option>
                                             <option value="Afghanistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
@@ -383,7 +378,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">related dreams</label>
                                     <div class="col-sm-10 related-dreams">
-                                        <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete autocomplete-dreams">
+                                        <select multiple="" style="width: 250px;" data-placeholder="Choose from existing..." class="autocomplete js-autocomplete-dreams">
                                             <option value="United States">United States</option>
                                             <option value="Afghanistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
@@ -395,11 +390,13 @@
                         </form>
                     </div>
                     <div class="panel-footer clearfix">
-                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-adjust"></span></button>
-                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-bookmark"></span></button>
-                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button>
-                        <button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-cloud"></span></button>
-                        <a href="#confirmation" role="button" data-toggle="modal" class="btn btn-default btn-xs btn-link pull-right action-delete"><span class="glyphicon glyphicon-trash"></span></a>
+                        <button class="btn btn-link"><span class="lucidicon-smiley"></span></button>
+                        <button class="btn btn-link"><span class="lucidicon-star-half"></span></button>
+                        <button class="btn btn-link"><span class="lucidicon-lightning"></span></button>
+                        <button class="btn btn-link"><span class="lucidicon-tags"></span> 2</button>
+                        <button class="btn btn-link"><span class="lucidicon-link"></span></button>
+                        <button class="btn btn-link pull-right js-edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                        <a href="#confirmation" role="button" data-toggle="modal" class="btn btn-default btn-link pull-right js-delete"><span class="glyphicon glyphicon-trash"></span></a>
                     </div>
                 </div>
 
@@ -418,7 +415,7 @@
                 <div class="modal-body">
                     <div class="alert alert-block alert-danger">
                         <h4>Warning!</h4>
-                        <p>Are you sure you want to delete <strong class="dream-to-delete">this dream</strong>?</p>
+                        <p>Are you sure you want to delete <strong class="js-dream-to-delete">this dream</strong>?</p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -437,7 +434,7 @@
             <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><i class="glyphicon glyphicon-user"></i>&nbsp;Tamás&nbsp;<span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="settings.html"><i class="glyphicon glyphicon-wrench"></i>&nbsp;Settings</a></li>
-                <li><a href="login.html"><i class="glyphicon glyphicon-off"></i>&nbsp;Sign out</a></li>
+                <li><a href="login.html"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sign out</a></li>
             </ul>
         </div>
 
@@ -483,6 +480,16 @@
                         <h3>Dream recall</h3>
                         <img src="https://chart.googleapis.com/chart?chs=300x80&cht=lc&chd=t:40,60,60,45,47,75,70,72" alt="Chart showing dream recall" />
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-md-offset-2">
+                    <ul class="list-inline">
+                        <li><a href="#"><small>About</small></a></li>
+                        <li><a href="#"><small>Help</small></a></li>
+                        <li><a href="#"><small>Blog</small></a></li>
+                        <li class="pull-right"><small>&copy; 2014 Dreaming sheep</small></li>
+                    </ul>
                 </div>
             </div>
         </div>

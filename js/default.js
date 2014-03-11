@@ -81,7 +81,7 @@ $(function () {
 
     //prepare sleeping period
     $('.timepicker').timepicker();
-    $('.action-new-sleep').on('click', function () {
+    $('.js-new-sleep').on('click', function () {
         //todo: refactor bed/wake time selection
     });
 
@@ -89,18 +89,17 @@ $(function () {
 
     //add dream
     $('.empty').hide();
+    $('.js-edit').hide();
     $('.action-add').on('click', function () {
         //hide and disable previous dream
-        $('.dream:first .form-group').hide();
-        $('.dream:first').find('.form-group:nth-child(1)').show();
-        $('.dream:first').find('.form-group:nth-child(2)').show();
-        $('.dream:first').find('.form-group:nth-child(3)').show();
-        $('.dream:first .form-control').attr('disabled', true);
-        $('.dream:first label').addClass('text-muted');
+        $('.dream:first').addClass('inactive');
+        $('.dream:first .form-control').removeClass('col-sm-10').addClass('col-sm-12').attr('disabled', true);
+        $('.dream:first .form-control').parent().removeClass('col-sm-10').addClass('col-sm-12')
+        $('.js-edit', '.dream:first').show();
         //close the dummy mockup
         $('.empty').clone(true).insertAfter('.dream:last').removeClass('empty').fadeIn(function () {
-            $(".autocomplete-dreams", this).chosen();
-            $(".autocomplete-symbols", this).chosen({ addNewElementCallback: addTagCallback, no_results_text: "Create new symbol" });
+            $(".js-autocomplete-dreams", this).chosen();
+            $(".js-autocomplete-symbols", this).chosen({ addNewElementCallback: addTagCallback, no_results_text: "Create new symbol" });
             $('.timepicker', this).timepicker();
         });
         //copy the sleep period to the next dream as default
@@ -116,18 +115,27 @@ $(function () {
     });
 
     //delete dream
-    $('.action-delete').on('click', function () {
+    $('.js-delete').on('click', function () {
         dreamToDelete = $(this).parents('.dream');
         if (dreamToDelete.find('input[type="text"]:nth-child(1)').val() == "") {
-            $('.dream-to-delete').html("this dream");
+            $('.js-dream-to-delete').html("this dream");
         } else {
-            $('.dream-to-delete').html(dreamToDelete.find('input[type="text"]:nth-child(1)').val());
+            $('.js-dream-to-delete').html(dreamToDelete.find('input[type="text"]:nth-child(1)').val());
         }
     });
     $('#confirmation .btn-primary').on('click', function () {
         dreamToDelete.fadeOut(400, function () {
             dreamToDelete.remove();
         });
+    });
+
+    //toggle lucidity level
+    $('.js-lucidity-level').hide();
+    $('.js-type label').on('click', function () {
+        $(this).parents('.dream').find('.js-lucidity-level').hide();
+    });
+    $('.js-lucid').on('click', function () {
+        $(this).parents('.dream').find('.js-lucidity-level').show();
     });
 
     //dummy save to database
@@ -149,12 +157,21 @@ $(function () {
 
     //autocomplete
     var addTagCallback = function (tagText, selector) {
-        $('.autocomplete-symbols').append($('<option></option>').val(tagText).html(tagText));
+        $('.js-autocomplete-symbols').append($('<option></option>').val(tagText).html(tagText));
         $("option:last", selector.form_field).attr('selected', 'selected');
-        $('.autocomplete-symbols').trigger("liszt:updated");
+        $('.js-autocomplete-symbols').trigger("liszt:updated");
     };
-    $(".dream:first .autocomplete-dreams").chosen();
-    $(".dream:first .autocomplete-symbols").chosen({ addNewElementCallback: addTagCallback, no_results_text: "Create new symbol" });
+    $(".dream:first .js-autocomplete-dreams").chosen();
+    $(".dream:first .js-autocomplete-symbols").chosen({ addNewElementCallback: addTagCallback, no_results_text: "Create new symbol" });
+
+
+
+    /* advanced search */
+    $('.dates input[type="text"]').datepicker({
+        prevText: "&laquo;",
+        nextText: "&raquo;"
+    });
+    $(".js-search .js-autocomplete-symbols").chosen();
 
 });
 
