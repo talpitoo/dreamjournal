@@ -132,10 +132,54 @@ $(function () {
     //toggle lucidity level
     $('.js-lucidity-level').hide();
     $('.js-type label').on('click', function () {
-        $(this).parents('.dream').find('.js-lucidity-level').hide();
+        //$(this).parents('.dream').find('.js-lucidity-level').hide();
+        $(this).closest('fieldset').find('.js-lucidity-level').hide();
     });
     $('.js-lucid').on('click', function () {
-        $(this).parents('.dream').find('.js-lucidity-level').show();
+        //$(this).parents('.dream').find('.js-lucidity-level').show();
+        $(this).closest('fieldset').find('.js-lucidity-level').show();
+    });
+
+    //update dream summary icons
+    $('.js-mood .btn').on('click', function () {
+        var selectedMood = $(this).find('input').val();
+        $(this).closest('.dream').find('.js-summary-mood').removeClass().addClass('js-summary-mood lucidicon lucidicon-' + selectedMood);
+    });
+    $('.js-recall .btn').on('click', function () {
+        var selectedRecall = $(this).find('input').val();
+        switch (selectedRecall) {
+            case "blurry":
+                selectedRecall = "batteryempty";
+                break;
+            case "na":
+                selectedRecall = "batteryhalf";
+                break;
+            case "clear":
+                selectedRecall = "batteryfull";
+                break;
+        }
+        $(this).closest('.dream').find('.js-summary-recall').removeClass().addClass('js-summary-recall lucidicon lucidicon-' + selectedRecall);
+    });
+    $('.js-type .btn').on('click', function () {
+        var selectedType = $(this).find('input').val();
+        switch (selectedType) {
+            case "regular":
+                selectedType = "";
+                break;
+            case "lucid":
+                selectedType = "lightning";
+                break;
+            case "obe":
+                selectedType = "users";
+                break;
+            case "precognition":
+                selectedType = "camera";
+                break;
+            case "falseawakening":
+                selectedType = "alarm";
+                break;
+        }
+        $(this).closest('.dream').find('.js-summary-type').removeClass().addClass('js-summary-type lucidicon lucidicon-' + selectedType);
     });
 
     //dummy save to database
@@ -172,6 +216,19 @@ $(function () {
         nextText: "&raquo;"
     });
     $(".js-search .js-autocomplete-symbols").chosen();
+    $(".js-search-results").hide();
+    $(".js-advanced-search").on('click', function () {
+        $(".js-search-results").show();
+    });
+
+
+
+    /* symbol editor */
+    $('.js-symbol-editor .details').hide();
+    $('table a').on('click', function () {
+        $('.js-symbol-editor .overview').hide();
+        $('.js-symbol-editor .details').show();
+    });
 
 });
 

@@ -12,6 +12,7 @@
     <link href="css/datepicker.css" rel="stylesheet">
     <link href="css/chosen.css" rel="stylesheet" />
     <link href="css/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="css/lucidicon.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -41,24 +42,26 @@
             <div class="col-sm-12 col-md-8 col-md-offset-2">
                 <h1>Advanced search</h1>
                 <form class="form-horizontal">
-                    <div class="form-group">
+                    <fieldset>
+                        <legend class="sr-only">Dream details</legend>
+                        <div class="form-group">
                         <label class="col-sm-4 control-label" for="keywords">Keywords</label>
                         <div class="col-sm-8">
                             <input type="text" id="keywords" class="form-control">
                         </div>
                     </div>
-                    <div class="form-group">
+                        <div class="form-group">
                         <label class="col-sm-4 control-label">Symbols</label>
                         <div class="col-sm-8">
                             <select multiple="" style="width: 250px;" data-placeholder="Choose..." class="form-control autocomplete js-autocomplete-symbols">
-                                <option value="United States">United States</option>
-                                <option value="Afghanistan">Afghanistan</option>
-                                <option value="Albania">Albania</option>
-                                <option value="Algeria">Algeria</option>
+                                <option value="levitation">levitation</option>
+                                <option value="cycling">cycling</option>
+                                <option value="mountains">mountains</option>
+                                <option value="flying">flying</option>
                             </select>
                         </div>
                     </div>
-                    <div class="form-group dates">
+                        <div class="form-group dates">
                         <label class="col-sm-4 control-label">Date between</label>
                         <div class="col-sm-8 form-inline">
                             <div class="form-group">
@@ -82,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                        <div class="form-group">
                         <label class="col-sm-4 control-label">Time between</label>
                         <div class="col-sm-8 form-inline">
                             <div class="form-group">
@@ -106,111 +109,156 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                        <div class="form-group js-mood">
                         <label class="col-sm-4 control-label">mood</label>
                         <div class="col-sm-8">
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    :0
+                                    <input type="radio" name="mood" value="scarry">
+                                    <span class="lucidicon lucidicon-scarry"></span>
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    :(
+                                    <input type="radio" name="mood" value="sad">
+                                    <span class="lucidicon lucidicon-sad"></span>
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    :|
+                                    <input type="radio" name="mood" value="neutral">
+                                    <span class="lucidicon lucidicon-neutral"></span>
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    :)
+                                    <input type="radio" name="mood" value="smiley">
+                                    <span class="lucidicon lucidicon-smiley"></span>
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    =)
+                                    <input type="radio" name="mood" value="laugh">
+                                    <span class="lucidicon lucidicon-laugh"></span>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                        <div class="form-group">
                         <label class="col-sm-4 control-label">recall</label>
                         <div class="col-sm-8">
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    blurry
+                                    <input type="radio" name="recall" value="blurry">
+                                    <span class="lucidicon lucidicon-batteryempty"></span> blurry
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    n/a
+                                    <input type="radio" name="recall" value="na">
+                                    <span class="lucidicon lucidicon-batteryhalf"></span> n/a
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    clear
+                                    <input type="radio" name="recall" value="clear">
+                                    <span class="lucidicon lucidicon-batteryfull"></span> clear
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                        <div class="form-group">
                         <label class="col-sm-4 control-label">type</label>
                         <div class="col-sm-8">
-                            <div class="btn-group" data-toggle="buttons">
+                            <div class="btn-group js-type" data-toggle="buttons">
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
+                                    <input type="radio" name="type" value="regular">
                                     regular
                                 </label>
-                                <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    lucid
+                                <label class="btn btn-default js-lucid">
+                                    <input type="radio" name="type" value="lucid">
+                                    <span class="lucidicon lucidicon-lightning"></span> lucid
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    OBE
+                                    <input type="radio" name="type" value="obe">
+                                    <span class="lucidicon lucidicon-users"></span> OBE
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    precognition
+                                    <input type="radio" name="type" value="precognition">
+                                    <span class="lucidicon lucidicon-camera"></span> precognition
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    false awakening
+                                    <input type="radio" name="type" value="falseawakening">
+                                    <span class="lucidicon lucidicon-alarm"></span> false awakening
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                        <div class="form-group js-lucidity-level">
                         <label class="col-sm-4 control-label">lucidity</label>
                         <div class="col-sm-8">
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
-                                    none
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
+                                    <input type="radio" name="lucidity" value="low">
                                     low
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
+                                    <input type="radio" name="lucidity" value="medium">
                                     medium
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type="checkbox" name="options">
+                                    <input type="radio" name="lucidity" value="high">
                                     high
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                        <div class="form-group">
                         <div class="col-sm-4 control-label"></div>
                         <div class="col-sm-8">
-                            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</button>
+                            <a href="javascript:" class="btn btn-primary js-advanced-search"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
                         </div>
                     </div>
+                    </fieldset>
                 </form>
-
-
+                <div class="js-search-results">
+                    <h2>3 results</h2>
+                    <div class="panel panel-default dream inactive">
+                        <div class="panel-body">
+                            <h3><a href="index.html">Over the rainbow</a></h3>
+                            <p><span class="text-muted">7 January, 2014 - </span>Their could can widen ten she any. As so we smart those money in. Am wrote up whole so tears sense oh. Absolute required of reserved in offering no. How sense found our those gay again taken the. Had mrs outweigh desirous sex overcame. Improved property reserved disposal do offering me.</p>
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <div class="summary">
+                                <span class="lucidicon lucidicon-laugh"></span>
+                                <span class="lucidicon lucidicon-batteryfull"></span>
+                                <span class="lucidicon lucidicon-camera"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default dream inactive">
+                        <div class="panel-body">
+                            <h3><a href="index.html">Cycling home</a></h3>
+                            <p><span class="text-muted">29 December, 2013 - </span>Bringing so sociable felicity supplied mr. September suspicion far him two acuteness perfectly. Covered as an examine so regular of. Ye astonished friendship remarkably no. Window admire matter praise you bed whence. Delivered ye sportsmen zealously arranging frankness estimable as. Nay...</p>
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <div class="summary">
+                                <span class="lucidicon lucidicon-smiley"></span>
+                                <span class="lucidicon lucidicon-batteryhalf"></span>
+                                <span class="lucidicon lucidicon-tags"></span> <a href="symbol-editor.html">cycling</a>, <a href="symbol-editor.html">mountains</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default dream inactive">
+                        <div class="panel-body">
+                            <h3><a href="index.html">Snowfall</a></h3>
+                            <p><span class="text-muted">16 March, 2014 - </span>On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any. Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness. Husbands see disposed surprise likewise humoured yet pleasure. Fifteen no inquiry cordial so resolve...</p>
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <div class="summary">
+                                <span class="lucidicon lucidicon-scarry"></span>
+                                <span class="lucidicon lucidicon-batteryfull"></span>
+                                <span class="lucidicon lucidicon-lightning"></span>
+                                <span class="lucidicon lucidicon-link"></span> <a href="#">Another lucid dream #2</a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="pagination">
+                      <li class="disabled"><a href="#">&laquo;</a></li>
+                      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">&raquo;</a></li>
+                   </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -255,7 +303,7 @@
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-md-offset-2">
                     <div class="top-symbols well clearfix">
-                        <a class="btn btn-xs btn-link pull-right" href="#"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Symbol editor</a>
+                        <a class="btn btn-xs btn-link pull-right" href="symbol-editor.html"><span class="lucidicon lucidicon-tags"></span>&nbsp;Symbol editor</a>
                         <h3>Top symbols</h3>
                         <ol>
                             <li><span class="label label-default">levitation</span> (17)</li>
@@ -276,7 +324,7 @@
                 <div class="col-sm-12 col-md-8 col-md-offset-2">
                     <ul class="list-inline">
                         <li><a href="#"><small>About</small></a></li>
-                        <li><a href="#"><small>Help</small></a></li>
+                        <li><a href="#"><small>FAQ</small></a></li>
                         <li><a href="#"><small>Blog</small></a></li>
                         <li class="pull-right"><small>&copy; 2014 Dreaming sheep</small></li>
                     </ul>
